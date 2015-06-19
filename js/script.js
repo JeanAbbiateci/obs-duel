@@ -8,7 +8,8 @@ function init() {
                      callback: showInfo,
                      simpleSheet: true,
                      orderby: "id",
-                     reverse: false } )
+                     reverse: false,
+                     query: "publie=oui"} )
   	}
 
 /* Récupération des paramètres de l'URL pour savoir quel duel afficher en premier */
@@ -185,6 +186,7 @@ function show_fight(id) {
 function showInfo(data, tabletop) {
 
 	 /* Ecriture de toutes les données du doc avec Handlebars.js */
+    console.log(data);
 
 		var source1 = $("#entry-template-1").html();
 		var source2 = $("#entry-template-2").html();
