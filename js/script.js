@@ -84,18 +84,22 @@ function preloadImages() {
 
 /* Pour définir les URL de partage des boutons Facebook et Twitter */
 
+
 function setShareURL(id) {
-    var current_url = window.location.href; 
-    var current_adv1 = $('#fight_choice_' + id + " .fight_choice_adv1").text();
-    var current_adv2 = $('#fight_choice_' + id + " .fight_choice_adv2").text();
-    var fb_share_url_adv1 = "https://www.facebook.com/sharer/sharer.php?u=" + current_url;
-    var tw_share_url_adv1 = "https://twitter.com/intent/tweet?via=lenouvelobs&text=" + "Pour moi, " + current_adv1 + " remporte le duel de l’Obs contre " + current_adv2 + "%20" + current_url;
-    var fb_share_url_adv2 = "https://www.facebook.com/sharer/sharer.php?u=" + current_url;
-    var tw_share_url_adv2 = "https://twitter.com/intent/tweet?via=lenouvelobs&text=" + "Pour moi, " + current_adv2 + " remporte le duel de l’Obs contre " + current_adv1 + "%20" + current_url;
-    $('#container_fight_' + id + " .fb_share_adv1").attr("href", fb_share_url_adv1);
-    $('#container_fight_' + id + " .tw_share_adv1").attr("href", tw_share_url_adv1);
-    $('#container_fight_' + id + " .fb_share_adv2").attr("href", fb_share_url_adv2);
-    $('#container_fight_' + id + " .tw_share_adv2").attr("href", tw_share_url_adv2);
+    var current_url = window.location;
+    var advs = ["adv1", "adv2"];
+    advs.forEach(function(adv) {
+        console.log(adv);
+        var name = $('#fight_choice_' + id + " .fight_choice_" + adv).text();
+        var opponent = advs.filter(function(value) {
+            return value !=  name;
+        }).pop();
+        var opponent_name = $('#fight_choice_' + id + " .fight_choice_" + opponent).text();
+        var fb_share_url = "https://www.facebook.com/sharer/sharer.php?u=" + current_url;
+        var tw_share_url = "https://twitter.com/intent/tweet?via=lenouvelobs&text=" + "Pour moi, " + name + " remporte le duel de l’Obs contre " + opponent_name + "%20" + current_url;
+        $('#container_fight_' + id + " .fb_share_" + adv).attr("href", fb_share_url);
+        $('#container_fight_' + id + " .tw_share_" + adv).attr("href", tw_share_url);
+    })
 } 
 
 /* Pour afficher un des duels en fonction de son id */
