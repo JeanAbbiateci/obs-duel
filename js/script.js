@@ -78,7 +78,11 @@ function removeParam(parameter) {
 function preloadImages() {
     $(".fight_choice:in-viewport").each(function( index ) {
       var available_fight_id = $(this).attr('id').replace('fight_choice_','');
-      $('#container_fight_' + available_fight_id + " img.lazy").lazyload();
+      $('#container_fight_' + available_fight_id + " img.lazy").each(function () {
+        var img_src = $(this).attr('src');
+        /* console.log('Image trouvée :' + img_src); */
+        if ((typeof(img_src) == 'undefined') || (img_src == 'undefined') || (img_src == '')) { $(this).lazyload(); } 
+      });
     });
 }    
 
@@ -192,7 +196,7 @@ function showInfo(data, tabletop) {
 		});
 
     $('img.lazy').load(function() {
-     /* console.log($(this).attr('src') + ' loaded');*/
+   /*  console.log($(this).attr('src') + ' loaded'); */
     });
 
 		/* Si l'URL contient le paramètre duel, on ouvre le duel concerné, sinon on ouvre un duel choisi/le dernier publié */
@@ -221,7 +225,7 @@ function showInfo(data, tabletop) {
 
     });  
 
-    /* Au scroll dans le menu déroulant, on charge les images des duel sélectionnables */
+    /* Au scroll dans le menu déroulant, on charge les images des duels sélectionnables */
 
     $(window).scroll(function() {
            if ($('#selector').hasClass('selector_on')) { preloadImages() };
