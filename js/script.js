@@ -89,6 +89,7 @@ function preloadImages() {
 /* Pour définir les URL de partage des boutons Facebook et Twitter */
 
 function setShareURL(id) {
+
     var current_url = window.location.href; 
     var current_adv1 = $('#fight_choice_' + id + " .fight_choice_adv1").text();
     var current_adv2 = $('#fight_choice_' + id + " .fight_choice_adv2").text();
@@ -100,6 +101,7 @@ function setShareURL(id) {
     $('#container_fight_' + id + " .tw_share_adv1").attr("href", tw_share_url_adv1);
     $('#container_fight_' + id + " .fb_share_adv2").attr("href", fb_share_url_adv2);
     $('#container_fight_' + id + " .tw_share_adv2").attr("href", tw_share_url_adv2);
+
 } 
 
 /* Pour afficher un des duels en fonction de son id */
