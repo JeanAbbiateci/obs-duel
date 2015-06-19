@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les duels de l'Obs</title>
+    <title>Tous les duels de L'Obs</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link href="poll/template/styles.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/main.css">
