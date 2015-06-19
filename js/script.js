@@ -95,6 +95,7 @@ function setShareURL(id) {
     advs.forEach(function(adv) {
         console.log(adv);
         var name = $('#fight_choice_' + id + " .fight_choice_" + adv).text();
+        console.log(name);        
         var opponent = advs.filter(function(value) {
             return value !=  name;
         }).pop();
