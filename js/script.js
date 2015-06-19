@@ -230,7 +230,7 @@ function showInfo(data, tabletop) {
     /* Au clic sur le texte de fermeture de l'infobulle, on la ferme */
 
     $('#close_tip').click( function() {
-      console.log("clic clic");
+
       $('#selector_tip').hide('fast');
     });
 
